@@ -42,6 +42,18 @@
 - Subject-identity evidence: *actual modern archaeological-site photo*, *historical artwork/depiction*, or *other*, with uncertainty/relationship type. A later artistic depiction must not be called a photographic portrait.
 - Avoid large original media in the package unless measured size and rights justify it; the gallery is optional.
 
+## File-by-file Commons spot check (source pages, no images republished)
+
+The following **actual** Wikimedia Commons file pages were checked. They illustrate why a package needs per-file rights metadata, subject labels and **bounded thumbnails** rather than indiscriminately bundling the full-sized originals. None of these files or their image bytes has been downloaded or committed here, and the Commons API's machine-readable `imageinfo.extmetadata` has **not yet been exercised**.
+
+| Actual file page | Source, identity, original dimensions / bytes | Visible rights evidence and required presentation |
+| --- | --- | --- |
+| [Panorama of Jerusalem from Mount of Olives](https://commons.wikimedia.org/wiki/File:Panorama_of_Jerusalem_from_Mount_of_Olives.jpg) | Modern Jerusalem panorama photographed by **Jakub CA**, 24 October 2019; original **10,000 × 3,840 pixels / 16.53 MB**. | The Commons file page explicitly lists [**CC BY-SA 4.0**](https://creativecommons.org/licenses/by-sa/4.0/). Credit the photographer, source file page and license; indicate any resizing/cropping. It represents the **modern city**, not an image of ancient Jerusalem. |
+| [Jerusalem from the Mount of Olives (53714451089)](https://commons.wikimedia.org/wiki/File:Jerusalem_from_the_Mount_of_Olives_(53714451089).jpg) | Modern Jerusalem panorama by **Mustang Joe**, taken 10 September 2023; original **12,504 × 3,877 / 36.33 MB**, transferred from Flickr. | Commons specifies [**CC0 1.0**](https://creativecommons.org/publicdomain/zero/1.0/); its Flickr-source license was reviewed by FlickreviewR 2 on **9 January 2025**. Preserve source/creator provenance even if legally optional; do not mistake an uploaded-by account for the creator. |
+| [Rembrandt, *Abraham and Isaac* (1645)](https://commons.wikimedia.org/wiki/File:Rembrandt_Abraham_and_Isaac.jpg) | Etching and burin print by **Rembrandt van Rijn**, date **1645**, held by the National Gallery of Art, Washington; digital original **3,292 × 4,000 / 5.36 MB**. | Commons states the artwork is **public domain** based on the creator's death and marks the file [Public Domain Mark 1.0](https://creativecommons.org/publicdomain/mark/1.0/), with a separate note about US-public-domain tagging. The displayed object is an **artistic representation of Abraham and Isaac**, never a portrait photograph or a visual proof of the events. Attribute creator, work and archive source in context. |
+
+**Important limitations:** Commons descriptions can include template-generated attribution terms, copyright badges, references to underlying photographs/reproductions, and US/source-country distinctions. These examples document the visible file pages; the actual acquisition stage must **parse the supported media API, select an explicit valid license path and verify relevant rights before shipping a thumbnail**. The bare presence of a Commons page, a Wikidata image statement (`P18`) or a Wikimedia thumbnail URL is **not itself a redistribution clearance**. These three examples are **not approved package records**, because no item-to-biblical-entity image relationship has yet undergone the editorial pilot's acceptance check.
+
 ## Reusable acquisition protocol (if the pilot is approved)
 
 1. Start from a **reviewed Q-ID/person/place identity**. Do not search Wikipedia or Commons by name to manufacture correspondence.
