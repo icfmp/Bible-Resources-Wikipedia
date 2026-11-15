@@ -40,7 +40,7 @@
 | `Bethlehem 2` (`a308715`) | [Q604557 — Bethlehem of Galilee](https://www.wikidata.org/wiki/Q604557) | **CANDIDATE** for Bethlehem in Joshua 19:15. Wikidata independently labels it “Bethlehem of Galilee”, not Bethlehem near Jerusalem. |
 | `Moreh 1` (`a38ad9f`) | *(no Q-ID)* | **UNRESOLVED.** Three ancient-place identification possibilities; no name-based fallback to `Moreh 2`. |
 | `Moreh 2` (`a772880`) | [Q1092415 — Givat HaMoreh](https://www.wikidata.org/wiki/Q1092415) | **UNRESOLVED as exact same entity**. Q-ID denotes a modern geographical feature; accept only a reviewed *related modern place* relationship if supported, not unconditional ancient-entity equivalence. |
-| `Adamah` (`a...`), `Avvim`, `Baal-hamon` | Q-ID present with OpenBible `modifier=not` | **EXCLUDE_DIRECT**. OpenBible explicitly warns these Wikidata links are not about the same place; never load their articles/images as a verified place match. |
+| `Adamah` (`afe1143`), `Avvim` (`a6d7a41`), `Baal-hamon` (`a304bb7`) | Q2605670, Q4828853, Q83879, respectively; each marked OpenBible `modifier=not` | **EXCLUDE_DIRECT**. OpenBible explicitly warns these Wikidata links are not about the same place; never load their articles/images as a verified place match. |
 
 ## Implications for the pilot and QA
 
