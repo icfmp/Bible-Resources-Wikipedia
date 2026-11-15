@@ -1,0 +1,28 @@
+# Local working data and unpublished generated packages
+/work/
+/cache/
+/build/
+/dist/
+/data/raw/
+/data/generated/
+/media/raw/
+/media/optimized/
+
+# Python tooling
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+
+# System/editor
+.DS_Store
+Thumbs.db
