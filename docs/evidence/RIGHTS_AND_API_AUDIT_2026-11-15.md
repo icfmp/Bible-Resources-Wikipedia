@@ -64,6 +64,14 @@ The following **actual** Wikimedia Commons file pages were checked. They illustr
 6. Fail safely on missing article, changed revision, conflicting license, absent media credits or unresolved identity; this means **omit the affected enrichment**, not silently fill a gap.
 7. After rights validation, a small optional **offline** resource can package selected text/data/verified thumbnails with credits; Bible itself does not need Wikimedia API access.
 
+## Revision-bound Wikipedia introduction: preferred research approach
+
+The **official MediaWiki REST API reference** [documents](https://www.mediawiki.org/wiki/API:REST_API/Reference) `GET /w/rest.php/v1/page/{title}/with_html`: its response combines **page metadata** (including `latest.id`, `latest.timestamp`, page `license`) and the page HTML, allowing the prepared excerpt to be tied to the same revision as the source text. Individual revision endpoints (`/revision/{id}/with_html`) can also re-read an exact revision. This is better for a frozen offline package than fetching an unversioned introductory sentence and a separate current revision that might change between requests. The specification is documented; **a real authenticated/identified request still needs to be tested with a compliant HTTP client**.
+
+The separate [Page Content Service](https://www.mediawiki.org/wiki/Page_Content_Service) documents a page-summary response with first-paragraph `extract` / `extract_html` and images, attractive for concise previews. However **do not assume the summary text and a separately obtained page revision are from the same revision** without verifying returned revision identifiers and API consistency. If no revision-anchored summary route can be established, derive a carefully delimited opening paragraph from exact-revision HTML rather than silently mixing versions; document any excerpting, HTML sanitation and citation handling.
+
+**Execution limitation in this audit:** public Wikipedia REST endpoint URLs could not be fetched through the available research browser (a disabled-fetch error). This is a **research environment limitation**, not evidence that Wikipedia's own API is unavailable or that an implementation request failed in a compliant Python client. No FR/EN page revision, excerpt or end-to-end API compatibility has been independently verified yet. The #2 acceptance gate remains open.
+
 ## Specific unresolved questions for the #2 acceptance gate
 
 - Choose the exact source API endpoints that provide a **revision-bound** lead extract and the correct source license. An API “summary” might reflect a different revision than page metadata if fetched asynchronously: document how to detect/avoid this.
