@@ -79,6 +79,25 @@ The 1,172 linked TIPNR IDs were compared to **current** simplified original TIPN
 
 OpenBible's 655 nonempty Wikidata links comprise **645 without a `modifier`**, **6 explicitly `modern`** and **4 explicitly `not`**. Reject `not` as an identity link; a modern-place target needs a separate modern-site relationship. The lack of a modifier is not enough on its own to prove scholarly identification.
 
+### Triage of OpenBible → current TIPNR mismatches (deeper pass)
+
+The **138** unmatched OpenBible records above represent **76 distinct source TIPNR IDs**, not 138 unrelated identities. A name-only *diagnostic* (not a matching algorithm) divides them into:
+
+- **97 ancient records**: the TIPNR **name** still occurs in the 2026 source but its first-reference key differs. Examples: OpenBible `Nebo_Mount@Deu.32.49` versus current `Nebo_Mount@Num.27.12`; `Adullam@Jos.12.15` versus `Adullam@Gen.38.1`; `Aram-naharaim@Psa.60.1` versus `Aram-naharaim@Psa.60.0`. These may reflect a canonical first-reference change, versification or different entity. **Do not reattach by name automatically.**
+- **41 ancient records**: the same name is absent in the current snapshot under this strict normalization, e.g. `Abel-shittim@Num.33.49`, `Beth-shan@1Sa.31.10`, `Gadara@Mat.8.28`. These may reflect alias normalization, renamed entities, spelling changes or dropped distinctions; **not necessarily an error in either source**.
+
+The **147** OpenBible TIPNR reuse groups also vary in meaning: `Nebo_Mount@Deu.32.49` is used for **Abarim** and **Mount Nebo**; `Abdon@Jos.21.30` is used for **Abdon** and **Ebron**; `Ammon@Deu.2.19` is used for **Ammon**, **Ham 1**, **Rabbah 1** and **Rabbah 2**. Some may be alternate names or related places rather than erroneously merged identities. A single TIPNR ID **must not automatically collapse different OpenBible ancient place records**.
+
+### Geographic examples with actual candidate counts
+
+- **Jerusalem**: OpenBible ancient `a15257a`, TIPNR `Jerusalem@Jos.10.1`, Q-ID `Q1218`, one recorded modern identification. A sensible positive *candidate*, but article/photograph identity must still be checked.
+- **Emmaus**: OpenBible ancient `ae7274b`, TIPNR `Emmaus@Luk.24.13`, Q-ID `Q165887`, **six distinct proposed modern locations**, including Qalunya, Emmaus Nicopolis and El Qubeibeh. Do not turn the first candidate or Wikidata entry into a unique asserted site.
+- **Nod**: OpenBible ancient `a1ad8e1`, TIPNR `Nod@Gen.4.16`, Q-ID `Q1929769`, but its only location resolution is `special: unknown_place`. The Q-ID **does not** justify a pin, archaeological photograph or modern-site claim.
+- **Moreh**: OpenBible distinguishes `Moreh 1` (`a38ad9f`, three ancient-location interpretations, **no** Q-ID) and `Moreh 2` (`a772880`, Q-ID `Q1092415`). Never merge on “Moreh”.
+- **Bethlehem**: `Bethlehem 1` (`a112427`, Q-ID `Q5776`) and `Bethlehem 2` (`a308715`, Q-ID `Q604557`) are different biblical place entries. That distinction must survive any Wikipedia link.
+
+**Review policy refinement:** classify a source-to-source mismatch as `changed_reference_candidate`, `renamed_or_missing_candidate`, `different_entity_type`, or `unresolved` for triage. These are diagnostic categories, **never** automatic acceptances. Historical/source evidence is needed to map an old ID to a new one.
+
 ## 4. Concrete ambiguous or incorrect candidate links
 
 | Example | Evidence from snapshots | Required decision |
