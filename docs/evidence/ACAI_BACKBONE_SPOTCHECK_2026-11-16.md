@@ -87,3 +87,22 @@
 - [ ] Re-examine source-vs-article provenance and license obligations in #2 and identity validation #1 before proposing a definitive canonical backbone.
 
 **Outcome:** ACAI adds actual typed and word-level concepts useful for the reader, but selected place records prove it cannot safely be treated as the sole authoritative crosswalk or as a vetted coordinate database. No identities newly approved and no source data, Bible application, package or public release changed.
+
+## Limited release-to-release comparison: 30 October → 7 November 2026
+
+A second pass fetched **the same eight exact JSON paths** at `v2026-10-30` and commit `5375d0d334bb6d635ef1813e4d3df58eb30efcca` (7 November 2026). **All eight file contents changed** at the Git blob level between the two snapshots, but `id` and `primary_id` values were identical for every tested entry. **This proves only continuity of these eight source-native IDs across these two snapshots**, not global stability.
+
+| JSON record | Same `id` and `primary_id` across snapshots? | Relevant diagnostic field unchanged? |
+| --- | --- | --- |
+| `people/json/Mary.2.json` | yes | no geo field; checked identity keys only |
+| `people/json/Joshua.2.json` | yes | no geo field; checked identity keys only |
+| `people/json/Shimon.json` | yes | no geo field; checked identity keys only |
+| `places/json/Gadara.json` | yes | `primary_id=place:Gerasa`, Biblica maps coordinate unchanged |
+| `places/json/Lehem.json` | yes | `is_person=true`, `primary_id=place:Bethlehem`, all provider coordinates unchanged |
+| `places/json/Bethlehem.2.json` | yes | the discrepant `recogito` coordinate and the two northern coordinates unchanged |
+| `places/json/Emmaus.json` | yes | `recogito=(56.78055,36.115)` unchanged |
+| `places/json/Nod.json` | yes | no geo coordinate; unchanged no-pin behavior |
+
+**Meaning:** the observed geographic hazards were **not introduced only in the 7 November release**. The changed Git blob SHA means other fields changed and were **not** fully diffed in this pass. This comparison does **not** prove the full release migration contract, schema stability, provenance of a coordinate, or whether maintainers consider these anomalies bugs.
+
+These results are source-revision snapshots, **not** eight independently confirmed historical identities. The earlier checkbox “compare exact entries across releases” is **partially addressed** for this selected set, not completed globally.
