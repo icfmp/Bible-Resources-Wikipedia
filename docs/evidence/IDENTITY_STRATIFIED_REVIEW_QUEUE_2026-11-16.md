@@ -116,3 +116,13 @@ The first four **unique-QID-in-PTA** rows were also compared with the correspond
 **Important limits:** this checks a person-name/type/reference combination across sources, but ACAI incorporates TIPNR, and a BiblIndex page carrying the same Q-ID is not by itself an independent historical proof for all assertions in Wikidata. The biblical passages and explicit person relationships do support these subject-level candidate identities; independent signed-off review and exact Wikidata item revisions still have to be recorded. **Do not treat 4/4 supported on this selected stratum as a global accuracy statistic.**
 
 **Cumulative person-candidate triage in this file:** 8 out of the 12 selected PTA source rows have some externally checkable evidence: 2 **direct identity rejected**, 6 **contextually supported candidates** (four unique-QID and two repeated-QID). The remaining **four blank-QID** candidates have not yet been reviewed. The additional Jachin temple-pillar sibling case is a **separate negative control**, not a ninth selected person row.
+
+## First sampled blank-QID follow-up: absence in PTA ≠ no Wikidata identity
+
+The selected row **`Zuriel_Num.3.35` has a blank Q-ID** in the exact pinned third-party PTA file. But [BiblIndex Zuriel, biblical name 1731](https://www.biblindex.org/en/bible-names/1731) names **the Levite Zuriel, son of Abihail and chief of the Merarites**, cites **Numbers 3:35** across different original-language and translated textual traditions, and explicitly proposes [Wikidata Q125747497](https://www.wikidata.org/wiki/Q125747497).
+
+**Disposition: `MISSING_IN_PTA_WITH_EXTERNAL_CANDIDATE`, still `UNRESOLVED` for our editorial crosswalk.** The correspondence is a promising **new candidate with passage-disambiguation evidence**, not an approved Q-ID: independent item identity/type and exact Wikidata version checks remain incomplete (the item page was not accessible in this pass). Preserve the original PTA blank unchanged, record BiblIndex provenance and assess whether the target topic is indeed the same biblical individual before allowing any article or structured field.
+
+The three other sampled blank rows `Uzzi_Neh.12.19`, `Jehiel_1Ch.15.18`, and `Eliehoenai_Ezr.8.4` remain **unresolved**; no name-only Wikidata or generic Strong-based fallback was applied.
+
+**Updated partial review counts:** 9 / 12 selected person rows have been triaged: 2 rejected direct identity, 6 supported direct-identity **candidates**, and 1 originally blank row with a new externally sourced candidate but still unresolved. Other 3 blank rows remain wholly unreviewed. This is **not** a measured population precision, recall or completeness rate.
