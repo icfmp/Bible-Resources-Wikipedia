@@ -10,9 +10,38 @@ The structural universe and source checksums remain those of [the pinned full in
 - STEP TIPNR: `STEPBible/STEPBible-Data`, commit `5de0a47f35f0fc13dfe1430d104e5db8a4285f9c`, TIPNR proper-nouns text, Git blob `94e636b8806eaa0501d2c7fc2a0fc87b3ffbea96`.
 - Pinned inventory: 147 reused linked-ID groups; 37 with multiple distinct nonempty Q-IDs. These are *structural* counts, not confirmed mapping errors.
 
-**Additional evidence inspected 16 November 2026:** public OpenBible *live* ancient-place pages and accessible Wikidata item descriptions, with independent BiblIndex checks for Mizpah. Exact links are below. The live pages are **not revision-pinned snapshots**, and individual Wikidata item revisions were **not captured**. Consequently these findings are reviewer leads, not reproducible final accepted records. Some Wikidata item pages failed retrieval; such failures are not interpreted as missing items. No mass raw source bytes, images, Wikipedia articles or generated summaries were copied.
+**Additional evidence inspected 16 November 2026:** public OpenBible *live* ancient-place pages and accessible Wikidata item descriptions, with independent BiblIndex checks for Mizpah. Exact links are below. The live pages are **not revision-pinned snapshots**, and individual Wikidata item revisions were **not captured**. The exact original OpenBible JSONL contents and link modifiers were independently re-checked in the pinned Git blob (counts below); this is still not a reproducible final set of accepted identities. Some Wikidata item pages failed retrieval; such failures are not interpreted as missing items. No mass raw source bytes, images, Wikipedia articles or generated summaries were copied.
 
 **Method:** select four high-conflict groups from the complete inventory; inspect a number of their *separate* OpenBible ancient-entry IDs, their own biblical verse contexts, the target concept and any `not` modifier, and the difference between a topic identity and a modern site/coordinate. Maintain the original linked STEP ID unchanged. Do not infer identity from a shared parent STEP ID.
+
+## Follow-up: qualified links verified in the **pinned** JSONL
+
+This pass also parsed **all 1,342** source lines of the exact OpenBible Git blob named above, selecting the source keys `linked_data.s3b25cf.id` (STEP) and `linked_data.s7cc8b2.id` / `linked_data.s7cc8b2.modifier` (Wikidata). The two source-key meanings are revision-bound, as already checked in the original structural audit.
+
+- **1,172** entries have a STEP linked ID; **574** of these also have a nonempty Wikidata Q-ID.
+- Among these **574** candidate Q-IDs, **564** have no modifier, **4** explicitly say `not`, and **6** say `modern`. Across all OpenBible rows there are **655** nonempty Q-IDs: 645 unqualified + the **same** 4 `not` and 6 `modern` rows.
+- Thus neither a populated Q-ID nor the absence of a modifier is equivalent to editorial acceptance. `not` is negative evidence against strict identity; `modern` requires separate ancient/modern relationship assessment.
+
+All **ten** qualified records, with the original 1-based JSONL line numbers:
+
+| Modifier | Source line | OpenBible entry | Original Q-ID |
+| --- | ---: | --- | --- |
+| `not` | 22 | Adamah (afe1143) | Q2605670 |
+| `not` | 137 | Avvim (a6d7a41) | Q4828853 |
+| `not` | 152 | Baal-hamon (a304bb7) | Q83879 |
+| `not` | 938 | New Gate (aa85961) | Q1256221 |
+| `modern` | 364 | Dung Gate (a1611b6) | Q204719 |
+| `modern` | 518 | Gimzo (a5dd9e3) | Q2613825 |
+| `modern` | 549 | Halhul (afca9ce) | Q2574933 |
+| `modern` | 556 | Hamath 1 (ac62cbc) | Q173545 |
+| `modern` | 602 | Helbon (a8a8e54) | Q16892062 |
+| `modern` | 640 | Iconium (ae425aa) | Q79857 |
+
+To reproduce the summary: parse each nonempty JSONL line; count rows by presence of the two source-specific `linked_data` IDs; group Wikidata-bearing rows by their exact modifier string, using `none` for a missing modifier. For reused STEP groups, count the distinct nonempty Q-IDs before and after removing entries whose Wikidata modifier is `not` or `modern`.
+
+- Before filtering, **37** of the 147 reused STEP groups have more than one distinct nonempty Q-ID.
+- After removing `not` and `modern` candidates, **36** still have multiple Q-IDs. The **one** group to drop out is `Hamath@Num.13.21`: Hamath 1 carries Q173545 (`modern`), while Lebo-hamath carries Q6467705 (unqualified). **Neither one is approved simply because this filter leaves one candidate.**
+- This is a **source-revision verification** of the exact modifiers and counts, but not a historical/subject identity validation of the 36 remaining groups.
 
 ## Case table — source **entry** is the review unit
 
@@ -48,7 +77,7 @@ The structural universe and source checksums remain those of [the pinned full in
 ## Next verification tasks / known blockers
 
 - Obtain **pinned individual Wikidata item revisions**, exact version-bound upstream row payloads and an independent biblical/authority countercheck before changing any `CANDIDATE` to `accepted`.
-- Resolve inaccessible Wikidata item pages (Q48968605, Q6884729, Q6884740, Q412380) using a compliant API client rather than guessing; also test whether source `not`/`modern` modifiers in the pinned JSONL match the live presentation.
+- Resolve inaccessible Wikidata item pages (Q48968605, Q6884729, Q6884740, Q412380) using a compliant API client rather than guessing; the upstream `not`/`modern` modifiers are now verified against pinned JSONL, but do not solve missing Wikidata revision checks.
 - Extend to **stratified** cases among the 37 MULTIPLE_QIDS groups, 110 other reused-ID groups and 76 distinct strict TIPNR-ID nonmatches. Record counts by cause only after evidence-level review. The present sample is intentionally biased toward problems and supplies **no error rate or precision estimate**.
 - Build a separate negative regression fixture: the combination `Baal-hamon a304bb7 → Q83879 (not)` must never enrich a biblical place; `Mizpah 3 a736f6c` must not inherit Arimathea's article simply because both carry `Mizpah@Jdg.20.1`.
 
