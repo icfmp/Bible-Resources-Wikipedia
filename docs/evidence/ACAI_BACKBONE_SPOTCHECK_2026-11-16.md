@@ -106,3 +106,38 @@ A second pass fetched **the same eight exact JSON paths** at `v2026-10-30` and c
 **Meaning:** the observed geographic hazards were **not introduced only in the 7 November release**. The changed Git blob SHA means other fields changed and were **not** fully diffed in this pass. This comparison does **not** prove the full release migration contract, schema stability, provenance of a coordinate, or whether maintainers consider these anomalies bugs.
 
 These results are source-revision snapshots, **not** eight independently confirmed historical identities. The earlier checkbox “compare exact entries across releases” is **partially addressed** for this selected set, not completed globally.
+
+## Additional release-tree and localization audit (16 November 2026)
+
+All comparisons below use immutable **Git tree objects** exposed by the upstream repository for ACAI release tags `v2026-10-19`, `v2026-10-30`, `v2026-11-07` (the last resolves to commit `5375d0d334bb6d635ef1813e4d3df58eb30efcca`). The Git trees contain exact filenames, uncompressed blob byte sizes and blob SHAs.
+
+### Measured JSON input footprint (7 November)
+
+| Original ACAI JSON directory | File count | Sum of original Git blob sizes |
+| --- | ---: | ---: |
+| `people/json/` (tree `dba7478d852fdf604919b5c2c271acec35662bc8`) | **3,426** | **31,535,737 bytes**, about 30.07 MiB |
+| `places/json/` (tree `716547359e39c07fc64fbfbc409619dadfd7573a`) | **1,418** | **9,555,425 bytes**, about 9.11 MiB |
+| **Total** | **4,844** | **41,091,162 bytes**, about **39.19 MiB** |
+
+A file is **not** synonymous with a distinct canonical biblical individual or place: ACAI stores alternate names/aliases as separate JSON records referencing primary IDs. These are **uncompressed source blobs**, not the eventual compressed download size or size of our desired smaller reviewed resource; licensing and attribution still govern redistribution.
+
+### Three-release identity/file checks
+
+| Git tree snapshot transition | People JSON names added/removed | Places JSON names added/removed | Existing Git blobs changed |
+| --- | ---: | ---: | ---: |
+| 19 October → 30 October 2026 | 0 / 0 (3,426 files) | 0 / 0 (1,418 files) | **All 4,844** |
+| 30 October → 7 November 2026 | 0 / 0 (3,426 files) | 0 / 0 (1,418 files) | **All 4,844** |
+
+The eight individual records in the initial two-release check (`person:Mary.2`, `person:Joshua.2`, `person:Shimon`, `place:Gadara`, `place:Lehem`, `place:Bethlehem.2`, `place:Emmaus`, `place:Nod`) were also fetched at `v2026-10-19`. For all **eight of eight**, the paths, `id`, `primary_id` and provider coordinates (when present) remained the same **across all three releases**. This proves only these eight selected records are stable across the period, **not** the dataset's long-term identifier lifecycle.
+
+**Why all Git blobs changed:** in two directly compared samples, `person:Shimon` and `place:Gadara`, the 30 October → 7 November object change was **only in `localizations`**, with Persian `fas` newly present; neither identity nor location fields changed. From 19 to 30 October, inspected samples also gained several locale records or had locale content updated. Do **not** extrapolate “localization-only” to all 4,844 files without a full field-wise comparison. Conversely, do not mistake a changed blob checksum for an actual change in historic identity.
+
+### Word-level promise and separation of occurrence vs subject
+
+The original ACAI `explicit_instances` fields contain original-language **token identifiers** distinct from broad `references` lists. For example, the pinned `person:Shimon` JSON has `explicit_instances.wlc=[["o130040200021"]]` and one source verse (`13004020`), while `person:Mary.3` supplies distinct SBLGNT token IDs for Luke 10:39 and other occurrences.
+
+The geographically distinct `place:Gadara` has `references` for four Gospel verses **but** `explicit_instances.SBLGNT` records one Matthew token (`n40008028011`); `place:Gerasa` records four SBLGNT token entries for Matthew, Mark and Luke and shares the broad verse set. This demonstrates why a reader must never equate **a passage association** with **verified word-to-entity resolution** or with **strict geographical identity**.
+
+Useful source-provider identity and word-level occurrence information can be retained **without** importing the provider's `primary_id` as an unrestricted equivalence relation. Word alignment/versification requirements for translated Bible texts are still untested.
+
+**Impact on #8:** ACAI is a strong candidate enrichment/lookup source and shows some useful short-term record-ID continuity, but its relationship errors and unsuitable coordinates have persisted over three releases. No wholesale adoption or global correctness inference is justified.
