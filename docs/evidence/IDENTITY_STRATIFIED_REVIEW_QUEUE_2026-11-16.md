@@ -74,3 +74,30 @@ For each selected *person* and **each selected place child entry**, preserve pro
 **Next actions:** inspect exact upstream per-entry source rows and changed TIPNR keys; compare the same individuals and place subjects with version-pinned ACAI and Theographic; resolve enough candidates to assess practical coverage **only within each sampled stratum**. Reconcile third-party source dependence and differing versifications. Avoid a single all-source “match accuracy” percentage unless a valid weighted population estimate is possible.
 
 No script was committed for this one-time deterministic sample; the rule above can be reproduced with common language libraries and the pinned source records. Do not launch Codex or build an importer from this review queue.
+
+## First sampled-person identity checks (16 November 2026)
+
+The following checks use **source-pinned PTA candidate rows** (table above), the actual cited biblical passages, and external public identity/authority pages. **The external Wikidata and BiblIndex page revisions have not all been pinned**; this is strong editorial triage evidence, *not* a final machine-readable accepted identity index or independent signed-off review. Source link data and explicit biblical facts should not be mistaken for proof that every Wikidata statement is correct.
+
+| Reviewed association / diagnostic control | Source-backed evidence | Provisional direct-identity disposition |
+| --- | --- | --- |
+| `Shemaiah_Ezr.8.16 → Q2090113` | Ezra 8:16 names a leader summoned **during Ezra's return**, whereas [BiblIndex Shemaiah](https://dapytains.biblindex.org/en/bible-names/1673) ties [Q2090113](https://www.wikidata.org/wiki/Q2090113) to the **prophet addressing Rehoboam** (1 Kings 12:22); [Ezra 8:16 passage](https://www.biblegateway.com/passage/?search=Ezra+8%3A16&version=NIV). | **REJECT DIRECT (high-confidence contradiction).** Different historical people/eras; preserve the erroneous candidate and the correct prophet row separately. |
+| `Azariah_2Ch.28.12 → Q313216` | [2 Chronicles 28:12](https://tips.translation.bible/story/sil-translators-notes-on-2-chronicles-2812/) names **Azariah son of Jehohanan**, an Ephraimite leader; [Wikidata Q313216](https://www.wikidata.org/wiki/Q313216) and [BiblIndex](https://www.biblindex.org/fr/bible-names/5) identify **Uzziah/Azariah the king of Judah**, son of Amaziah. | **REJECT DIRECT (high-confidence contradiction).** A king's alternative name does not make every Azariah in Scripture the king. |
+| `Jachin_Gen.46.10 → Q18088109` | [BiblIndex Jachin](https://jerihna.sourceschretiennes.org/en/bible-names/1007) links this Q-ID to **Simeon's son** and lists Genesis 46:10 and Exodus 6:15. | **CANDIDATE (supported; not independently signed off)** for this particular person. |
+| `Abdon_Jdg.12.13 → Q308320` | [Wikidata Q308320](https://www.wikidata.org/wiki/Q308320) and [BiblIndex](https://www.biblindex.org/en/bible-names/17) expressly describe **Abdon the judge in Judges 12:13**. The Wikidata page retrieved in this pass exposed a previous [page revision `2521607466`](https://www.wikidata.org/w/index.php?title=Q308320&oldid=2521607466); verify an exact entity revision before approval of downstream fields. | **CANDIDATE (supported; not independently signed off)** for this particular judge. |
+
+### Two important *same-Q-ID* negative sibling controls
+
+The same pinned PTA TSV assigns:
+
+- `Q18088109` to `Jachin_Gen.46.10`, `Jachin_1Ch.9.10`, `Jachin_1Ch.24.17`, and **`Jachin_1Ki.7.21`**. But [1 Kings 7:21](https://www.biblegateway.com/passage/?search=1+Kings+7%3A21&version=ESV) identifies **Jachin as the name of a temple pillar**, not a person at all. Thus the last association is a **clear category-error direct-identity rejection**; it must not be silently replaced by the biblical person Q-ID.
+- `Q308320` to `Abdon_Jdg.12.13`, `Abdon_1Ch.8.23` and `Abdon_1Ch.8.30`. The selected Judges row has a plausible correct anchor, but the other Chronicles rows refer to Benjaminite genealogy contexts and require independent namesake disambiguation, **not automatic inheritance** of the judge's Q-ID. This report does not sign off on these sibling rows.
+
+### Why this matters for choosing TIPNR or ACAI
+
+- A **repeated Q-ID is not always wrong**: some source records may legitimately refer to the same person under several names or translations, while others are definitively unrelated.
+- A Q-ID that is valid for **one** source row must **never be inherited by every same-name row**.
+- These negative examples arise from the **third-party PTA→Wikidata crosswalk**. They are **not evidence that the original TIPNR naming inventory contains these erroneous Wikidata links**: the distinction between **source entity** and **external candidate association** is central to the audit.
+- ACAI's original-language per-token `explicit_instances` can potentially resolve *which occurrence* a user clicked; its broader `references` list and `primary_id` must not be conflated with an approved historical entity identity. For example, in pinned ACAI `place:Gadara` the `references` list has four Gospel verses but `explicit_instances.SBLGNT` contains one Matthew token; `place:Gerasa` contains four SBLGNT token groups and shares the verses. The historical cities still remain distinct regardless of editorial grouping for verse occurrences.
+
+**Partial status only:** two sampled PTA associations show clear direct-identity contradictions, two are promising contextually supported candidates; no weighted error-rate estimate is defensible from these four checked rows, and the rest of the fixed sample remains unreviewed.
