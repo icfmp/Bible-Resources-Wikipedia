@@ -1,4 +1,4 @@
-# Reused OpenBible–TIPNR place links: four-group editorial probe (16 November 2026)
+# Reused OpenBible–TIPNR place links: six-group editorial probe (16 November 2026)
 
 **Issue:** #1. **Status:** evidence-based, deliberately selected diagnostic sample; **not** a stratified random sample, a complete identity check, an approved mapping, or a resource release.
 
@@ -12,7 +12,7 @@ The structural universe and source checksums remain those of [the pinned full in
 
 **Additional evidence inspected 16 November 2026:** public OpenBible *live* ancient-place pages and accessible Wikidata item descriptions, with independent BiblIndex checks for Mizpah. Exact links are below. The live pages are **not revision-pinned snapshots**, and individual Wikidata item revisions were **not captured**. The exact original OpenBible JSONL contents and link modifiers were independently re-checked in the pinned Git blob (counts below); this is still not a reproducible final set of accepted identities. Some Wikidata item pages failed retrieval; such failures are not interpreted as missing items. No mass raw source bytes, images, Wikipedia articles or generated summaries were copied.
 
-**Method:** select four high-conflict groups from the complete inventory; inspect a number of their *separate* OpenBible ancient-entry IDs, their own biblical verse contexts, the target concept and any `not` modifier, and the difference between a topic identity and a modern site/coordinate. Maintain the original linked STEP ID unchanged. Do not infer identity from a shared parent STEP ID.
+**Method:** select four high-conflict groups plus two contrasting groups (one or zero Q-IDs) from the complete inventory; inspect a number of their *separate* OpenBible ancient-entry IDs, their own biblical verse contexts, the target concept and any `not` modifier, and the difference between a topic identity and a modern site/coordinate. Maintain the original linked STEP ID unchanged. Do not infer identity from a shared parent STEP ID.
 
 ## Follow-up: qualified links verified in the **pinned** JSONL
 
@@ -63,7 +63,29 @@ To reproduce the summary: parse each nonempty JSONL line; count rows by presence
 | same | [Mizpah 4, a694ea2](https://www.openbible.info/geo/ancient/a694ea2/mizpah-4); Gen 31:47–49 | [Q6884740](https://www.wikidata.org/wiki/Q6884740) | **UNRESOLVED independent Wikidata check**; OpenBible marks a **stone heap**, and a qualified proposed alias of Mizpah 1. Not the same type as an urban settlement. |
 | same | [Ramah 5, ad27541](https://www.openbible.info/geo/ancient/ad27541/ramah-5); 2 Kgs 8:29 / 2 Chr 22:6 | [Q412380](https://www.wikidata.org/wiki/Q412380) | **UNRESOLVED independent Wikidata check**; OpenBible proposes an alias of Ramoth-gilead with high confidence, but that is no basis to equate every row sharing this STEP link. |
 
-**Interpretation:** this is **15 hand-selected OpenBible entries**, spanning 4 reused TIPNR-linked groups, not 15 approved correspondences. The *multiple-Q-ID* signal includes (1) distinct type-level concepts (city versus region, mountain versus town), (2) actual explicit negative links, (3) proposed geographic aliases, and (4) uncertain/symbolic referents. A one-Q-ID-per-linked-STEP-ID lookup would create false results even if every Q-ID string were syntactically valid.
+**Interpretation of the first four groups:** these are **15 hand-selected OpenBible entries**, not 15 approved correspondences. The *multiple-Q-ID* signal includes (1) distinct type-level concepts (city versus region, mountain versus town), (2) actual explicit negative links, (3) proposed geographic aliases, and (4) uncertain/symbolic referents. A one-Q-ID-per-linked-STEP-ID lookup would create false results even if every Q-ID string were syntactically valid.
+
+## Contrast groups: **one** or **zero** Q-IDs do not guarantee identity
+
+The full inventory also includes reused STEP-linked IDs with **only one nonempty Q-ID** or **no Q-ID**. To avoid focusing solely on obvious MULTIPLE_QIDS cases, the following **11 original entries across two additional groups** were inspected in the same pinned Git blob (1-based line numbers). This deliberately covers all three structural Q-ID categories; it is **not** a random or statistically representative sample.
+
+| Group / structural category | Pinned line / ancient entry | Q-ID on **that entry** | Biblical context and editorial issue |
+| --- | --- | --- | --- |
+| `Bethlehem@Gen.35.16` / **ONE_QID** | 233 — [Bethlehem 1 (a112427)](https://www.openbible.info/geo/ancient/a112427/bethlehem-1) | [Q5776](https://www.wikidata.org/wiki/Q5776) | Candidate **Bethlehem of Judea** topic (Gen 35:19; Ruth 1). |
+| same | 235 — [Bethlehem 3 (ab1a343)](https://www.openbible.info/geo/ancient/ab1a343/bethlehem-3) | **none** | Judges 12:8,10, concerning Ibzan. OpenBible favors a proposed alias of Bethlehem **2** (Galilee), while allowing Bethlehem 1 as a minority alternative. **Do not inherit Q5776.** |
+| same | 423 — [Ephrath (af4e985)](https://www.openbible.info/geo/ancient/af4e985/ephrath) | **none** | Genesis 35:16,19 and 48:7; plausible alias for Bethlehem 1 but identity still needs individual approval. |
+| same | 424 — [Ephrathah (af6c09e)](https://www.openbible.info/geo/ancient/af6c09e/ephrathah) | **none** | Ruth 4:11; Psalm 132:6; possible Bethlehem 1 relation, not automatically an identity or coordinate. |
+| same | 765 — [Lehem (a9ea180)](https://www.openbible.info/geo/ancient/a9ea180/lehem) | **none** | 1 Chronicles 4:22; OpenBible explicitly offers *not a place (personal name or part of a phrase)* **versus** a Bethlehem 1 alias. Do not assign a Q-ID or map marker. |
+| `Gilgal@Deu.11.30` / **NO_QID** | 224 — [Beth-gilgal (aea5552)](https://www.openbible.info/geo/ancient/aea5552/beth-gilgal) | **none** | Nehemiah 12:29; multiple proposed Gilgal aliases. |
+| same | 488 — [Geliloth (a0c9a06)](https://www.openbible.info/geo/ancient/a0c9a06/geliloth) | **none** | Joshua 18:17; 22:10–11; several proposed sites. |
+| same | 506 — [Gibeath-haaraloth (a97126d)](https://www.openbible.info/geo/ancient/a97126d/gibeath-haaraloth) | **none** | Joshua 5:3; a **hill near** Gilgal/Jericho, not an automatic identity with Gilgal. |
+| same | 513 — [Gilgal 1 (ab94aea)](https://www.openbible.info/geo/ancient/ab94aea/gilgal-1) | **none** | Joshua 4–5, several proposed locations. |
+| same | 515 — [Gilgal 3 (aed8df9)](https://www.openbible.info/geo/ancient/aed8df9/gilgal-3) | **none** | Joshua 15:7; could be linked to Geliloth or Gilgal 1, not yet resolved. |
+| same | 516 — [Gilgal 4 (a84a509)](https://www.openbible.info/geo/ancient/a84a509/gilgal-4) | **none** | Deuteronomy 11:30; OpenBible considers alternatives Gilgal 1 and Gilgal 2, and uncertain modern sites. |
+
+**Important contrasts:** in the **ONE_QID** group the sole Q-ID belongs only to Bethlehem 1, yet Bethlehem 3 is provisionally associated with a *different* Bethlehem and Lehem may not even be a place. In the **NO_QID** group, the lack of Wikidata matches tells us nothing about whether the six ancient entries share one referent. See the directly inspected [Bethlehem 3](https://www.openbible.info/geo/ancient/ab1a343/bethlehem-3), [Lehem](https://www.openbible.info/geo/ancient/a9ea180/lehem), [Gilgal 4](https://www.openbible.info/geo/ancient/a84a509/gilgal-4) and [Gibeath-haaraloth](https://www.openbible.info/geo/ancient/a97126d/gibeath-haaraloth) source pages. Original entry values were checked in the pinned JSONL; live page and Wikidata revisions remain unpinned.
+
+**Totals for this diagnostic pass:** **26 distinct OpenBible entries** from **six** selected reused-STEP groups: four MULTIPLE_QIDS groups (15 entries), one ONE_QID group (5), one NO_QID group (6). This balances *categories*, but **does not sample proportionately from the 147-group universe**, has no independent per-link sign-off and supplies no validated coverage/precision estimate.
 
 ## Required safety decisions to carry forward
 
